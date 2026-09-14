@@ -42,12 +42,12 @@ jobs :
       - run : npm ci
       - run : npm run test
 
-    build :
-      runs-on: ubuntu-latest
-      timeout-minutes : 10
-      needs : [lint,test]
-      steps :
-        - uses : actions/checkout@v4
-        - run : npm ci
-        - run : npm run build
-        - run: du -sh dist >> $GITHUB_STEP_SUMMARY
+  build :
+    runs-on: ubuntu-latest
+    timeout-minutes : 10
+    needs : [lint,test]
+    steps :
+      - uses : actions/checkout@v4
+      - run : npm ci
+      - run : npm run build
+      - run: du -sh dist >> $GITHUB_STEP_SUMMARY
